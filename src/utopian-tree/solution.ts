@@ -7,3 +7,5 @@ function UtopianTree(n: number): number {
 
   return height;
 }
+
+export { UtopianTree };

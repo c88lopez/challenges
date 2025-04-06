@@ -1,3 +1,5 @@
+import { UtopianTree } from "./solution";
+
 describe("Utopian Tree", () => {
   it.each([[5, 14]])(
     "with period %d should get height %d",
