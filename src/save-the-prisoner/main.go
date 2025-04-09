@@ -9,15 +9,32 @@ package save_the_prisoner
  */
 func saveThePrisoner(n int32, m int32, s int32) int32 {
 
+	var prisoner int32
+
 	r := m % n
 
-	if s+r > n {
-		if r+s-n-1 == 0 {
-			return s
+	if r == 0 {
+		prisoner = s
+		if prisoner-1 == 0 {
+			return n
 		}
-
-		return r + s - n - 1
+		return s - 1
 	}
 
-	return r - 1 + s
+	if m > n {
+		prisoner = s + r - 1
+		if prisoner > n {
+			return prisoner - n
+		}
+
+		return prisoner
+	}
+
+	// m < n
+	prisoner = s + m - 1
+	if prisoner > n {
+		return prisoner - n
+	}
+
+	return prisoner
 }
