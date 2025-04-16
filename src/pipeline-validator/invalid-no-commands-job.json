@@ -1,0 +1,9 @@
+{
+  "name": "Job without commands",
+  "jobs": [
+    {
+      "name": "empty commands",
+      "commands": []
+    }
+  ]
+}
