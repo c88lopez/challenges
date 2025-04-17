@@ -6,6 +6,7 @@
 function hasRepeatedNumbers(list: string[]): boolean {
   const numbers: string[] = [];
 
+  // @TODO use a map to avoid iterating on numbers
   return list.some((number) => {
     if (number === "") {
       return false;
