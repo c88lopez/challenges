@@ -1,0 +1,8 @@
+name: Build & Test
+
+import:
+  - name: Rails
+    from: ./library/rails.yml
+
+steps:
+  - use: Rails.RSpec

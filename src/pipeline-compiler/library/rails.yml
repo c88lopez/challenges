@@ -1,0 +1,3 @@
+exports:
+  - name: RSpec
+    spec: bundle exec rspec

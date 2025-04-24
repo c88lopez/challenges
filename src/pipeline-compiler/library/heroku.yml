@@ -1,0 +1,5 @@
+exports:
+  - name: Rollback
+    spec: heroku rollback
+  - name: Deploy
+    spec: git push heroku master

@@ -1,0 +1,11 @@
+name: Build & Test
+
+import:
+  - name: Heroku
+    from: ./library/heroku.yml
+  - name: Rails
+    from: ./library/rails.yml
+
+steps:
+  - use: Rails.RSpec
+  - use: Heroku.Deploy
