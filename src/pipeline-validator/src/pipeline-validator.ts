@@ -25,6 +25,10 @@ const validateJobs = (pipelineContent: PipelineContent): void => {
   if (!pipelineContent.jobs || pipelineContent.jobs.length === 0) {
     throw new Error("Jobs are required");
   }
+
+  if (pipelineContent.jobs.some((job) => !job.name)) {
+    throw new Error("Jobs must have a name");
+  }
 };
 
 const followDependencyCycle = (
