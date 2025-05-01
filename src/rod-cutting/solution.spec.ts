@@ -9,7 +9,10 @@ describe("Rod Cutting", () => {
     [5, [2, 5, 0, 0, 10], 12],
     [5, [0, 0, 0, 0, 0], 0],
     [1, [2], 2],
-  ])("should return expected value", (rodLength, prices, expected) => {
-    expect(RodCutting(rodLength, prices)).toBe(expected);
-  });
+  ])(
+    "should return expected value, n=%d, prices=%p, expected=%d",
+    (rodLength, prices, expected) => {
+      expect(RodCutting(rodLength, prices)).toBe(expected);
+    },
+  );
 });
