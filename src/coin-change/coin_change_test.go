@@ -7,24 +7,27 @@ import (
 
 func TestPossibleCoinChange(t *testing.T) {
 	datatable := []struct {
-		coinDenominations []int32
-		amount            int32
-		expected          int32
+		coinDenominations []int
+		amount            int
+		expected          int
 	}{
-		{[]int32{1, 2, 5}, 11, 3},
-		{[]int32{1}, 3, 3},
-		{[]int32{1}, 0, 0},
-		{[]int32{1, 3, 4}, 4, 1},
-		{[]int32{1, 3, 4}, 6, 2},
-		{[]int32{1, 2, 5}, 100, 20},
-		{[]int32{1}, 1000, 1000},
-		{[]int32{2, 5}, 8, 4},
-		{[]int32{2, 5}, 11, 4}, // 5:1, 2:3
+		{[]int{1, 2, 3}, 4, 2},
+		{[]int{1, 2, 5}, 6, 2},
+		{[]int{1, 2, 5}, 11, 3},
+		{[]int{1}, 3, 3},
+		{[]int{1}, 0, 0},
+		{[]int{1, 3, 4}, 4, 1},
+		{[]int{1, 3, 4}, 6, 2},
+		{[]int{5, 7}, 5, 1},
+		{[]int{2, 5}, 8, 4},
+		{[]int{2, 5}, 11, 4}, // 5:1, 2:3
+		{[]int{1, 2, 5}, 100, 20},
+		{[]int{1}, 1000, 1000},
 	}
 
 	for _, dataRow := range datatable {
 		t.Run(fmt.Sprintf(
-			"for denominations = %v and amount %d, we expected %d coints",
+			"for denominations = %v, amount %d, expected %d coins",
 			dataRow.coinDenominations, dataRow.amount, dataRow.expected,
 		), func(t *testing.T) {
 			result := CoinChange(dataRow.coinDenominations, dataRow.amount)
@@ -39,12 +42,14 @@ func TestPossibleCoinChange(t *testing.T) {
 
 func TestImpossibleCoinChange(t *testing.T) {
 	datatable := []struct {
-		coinDenominations []int32
-		amount            int32
-		expected          int32
+		coinDenominations []int
+		amount            int
+		expected          int
 	}{
-		{[]int32{2}, 3, -1},
-		{[]int32{5, 7}, 1, -1},
+		{[]int{2}, 3, -1},
+		{[]int{5, 7}, 1, -1},
+		{[]int{5, 7}, 4, -1},
+		{[]int{}, 4, -1},
 	}
 
 	for _, dataRow := range datatable {
