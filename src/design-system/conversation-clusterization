@@ -1,0 +1,30 @@
+# Technical Problem Statement: Design a Chat Analytics System
+
+##Background
+We operate a chat analytics platform that handles millions of conversations daily. Our current challenge is building a system to analyze, cluster, and derive insights from these conversations.
+
+##Scale
+  - 2M+ new messages per day
+  - Average conversation:
+      User messages: 3-5 messages, ~50 bytes each
+  - Al responses: 3-5 responses, ~2KB each
+  - The unique characteristic of our data is the asymmetric nature of conversations - user messages are typically short (1-10 sentences) while Al responses are much longer (5-10 paragraphs).
+  - Need to maintain 1 year of conversation history
+    Messages growing 50% QoQ
+
+  System Requirements
+1. Data Processing
+• Ingest and store messages immediately
+• Handle variable-length messages efficiently
+• Maintain conversation context and flow
+• Support for metadata extraction and updates
+2. Clustering & Analysis
+• Real-time conversation clustering
+• Topic detection and categorization
+• Pattern recognition across conversations
+• Support for custom analysis pipelines
+3. Query & Access
+• Fast search across conversations
+• Complex analytical queries
+• Support for pattern matching
+• Efficient access to related conversations
